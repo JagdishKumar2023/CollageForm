@@ -7,21 +7,76 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <div class="containerForm">
-      <div class="formHeading">
-        <h1>collage Registration</h1>
+    <div class="container">
+      <div class="navbar">
+        <div class="collegeName">
+          <h2>SN</h2>
+        </div>
+        <div class="leftNavbar">
+          <ul>
+            <li>
+              <a href="./index.html">registration</a>
+            </li>
+            <li>
+              <a href="./data.html">student data</a>
+            </li>
+          </ul>
+        </div>
       </div>
-      <nav class="navBar">
-        <ul>
-          <li id="name" value="">Name</li>
-          <li id="email" value="">Email</li>
-          <li id="phone" value="">phone</li>
-          <li id="12th percentage " value="">percentage</li>
-          <li id="city" value="">City</li>
-          <li id="gender" value="">Gender</li>
-          <li id="schoolName" value="">School Name</li>
-        </ul>
-      </nav>
+      <div class="formContainer">
+        <form onsubmit="handleSubmit(event)">
+          <input type="text" placeholder="name" id="name" value="" />
+          <input type="email" placeholder="email" id="email" value="" />
+          <input type="tel" placeholder="number" id="number" value="" />
+          <input
+            type="number"
+            placeholder="percentage"
+            id="percentage"
+            value=""
+          />
+          <input type="text" placeholder="school" id="school" value="" />
+          <input type="text" placeholder="city" id="city" value="" />
+          <button>Submit</button>
+        </form>
+      </div>
     </div>
   </body>
 </html>
+
+<script>
+  function handleSubmit(event) {
+    event.preventDefault();
+    let name = document.getElementById("name");
+    let nameValue = name.value;
+
+    let email = document.getElementById("email");
+    let emailValue = email.value;
+
+    let number = document.getElementById("number");
+    let numberValue = number.value;
+
+    let percentage = document.getElementById("percentage");
+    let percentageValue = percentage.value;
+
+    let school = document.getElementById("school");
+    let schoolValue = school.value;
+
+    let city = document.getElementById("city");
+    let cityValue = city.value;
+
+    let studentData = {
+      name: nameValue,
+      email: emailValue,
+      phone: numberValue,
+      percentage: percentageValue,
+      school: schoolValue,
+      city: cityValue,
+    };
+
+    let studentDataDB = JSON.parse(localStorage.getItem("studentData")) || [];
+
+    studentDataDB.push(studentData);
+
+    localStorage.setItem("studentData", JSON.stringify(studentDataDB));
+  }
+</script>
