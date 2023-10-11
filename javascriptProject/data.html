@@ -24,5 +24,50 @@
         </div>
       </div>
     </div>
+    <table border="1">
+      <thead class="studentContainer">
+        <tr class="studentData">
+          <td>Name</td>
+          <td>Email</td>
+          <td>tel</td>
+          <td>percentage</td>
+          <td>school</td>
+          <td>city</td>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
   </body>
 </html>
+
+<script>
+  let studentData = JSON.parse(localStorage.getItem("studentDataDB"));
+  console.log(studentData);
+
+  studentData.map(function (ele, idx, arr) {
+    let tbdy = document.getElementById("tbody");
+
+    let tr = document.createElement("tr");
+
+    let nameId = document.createElement("td");
+    nameId.innerText = ele.name;
+
+    let emailTd = document.createElement("td");
+    emailTd.innerText = ele.email;
+
+    let telTd = document.createElement("td");
+    telTd.innerText = ele.telTd;
+
+    let percentageTd = document.createElement("td");
+    percentageTd.innerText = ele.percentageTd;
+
+    let schoolTd = document.createElement("td");
+    schoolTd.innerText = ele.schoolTd;
+
+    let cityTd = document.createElement("td");
+    cityTd.innerText = ele.cityTd;
+
+    tr.append(nameTd, emailTd, telTd, percentageTd, schoolTd, cityTd);
+    tbdy.append(tr);
+  });
+</script>
