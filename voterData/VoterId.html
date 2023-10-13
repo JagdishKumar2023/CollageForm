@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voter</title>
+  </head>
+  <body>
+    <div class="VoterContainer">
+      <h1>Voter Form</h1>
+      <form onsubmit="handleSubmit(event)">
+        <input type="text" id="name" placeholder="enter your name" value="" />
+        <input type="tel" id="tel" placeholder="enter your number" value="" />
+        <input type="number" id="age" placeholder="enter your age" value="" />
+        <input
+          type="text"
+          id="gender"
+          placeholder="enter you gender"
+          value=""
+        />
+        <button>Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
+
+<script>
+  function handleSubmit(event) {
+    event.preventDefult();
+    let name = document.getElementById("name");
+    let nameValue = name.value;
+
+    let tel = document.getElementById("tel");
+    let telValue = tel.value;
+
+    let age = document.getElementById("age");
+    let ageValue = age.value;
+
+    let gender = document.getElementById("gender");
+    let genderValue = gender.value;
+
+    let voterIdData = {
+      name: nameValue,
+      tel: telValue,
+      age: ageValue,
+      gender: genderValue,
+    };
+
+    let voterIdDataStorage =
+      JSON.parse(localStorage.getItem("voterIdDataStorage")) || [];
+
+    voterIdDataStorage.push(voterIdData);
+
+    localStorage.setItem(
+      "voterIdDataStorage",
+      JSON.stringify(voterIdDataStorage)
+    );
+  }
+</script>

@@ -24,19 +24,38 @@
         </div>
       </div>
       <div class="formContainer">
-        <h1>collage registration</h1>
+        <h1>collage registration form</h1>
         <form onsubmit="handleSubmit(event)" class="detailContainer">
-          <input type="text" placeholder="name" id="name" value="" />
-          <input type="email" placeholder="email" id="email" value="" />
-          <input type="tel" placeholder="number" id="number" value="" />
+          <input type="text" placeholder="name" id="name" value="" required />
+          <input
+            type="email"
+            placeholder="email"
+            id="email"
+            value=""
+            required
+          />
+          <input
+            type="tel"
+            placeholder="number"
+            id="number"
+            value=""
+            required
+          />
           <input
             type="number"
             placeholder="percentage"
             id="percentage"
             value=""
+            required
           />
-          <input type="text" placeholder="school" id="school" value="" />
-          <input type="text" placeholder="city" id="city" value="" />
+          <input
+            type="text"
+            placeholder="school"
+            id="school"
+            value=""
+            required
+          />
+          <input type="text" placeholder="city" id="city" value="" required />
           <button>Submit</button>
         </form>
       </div>
@@ -74,11 +93,11 @@
       city: cityValue,
     };
 
-    let studentDataDB = JSON.parse(localStorage.getItem("studentData")) || [];
+    let studentDataDB = JSON.parse(localStorage.getItem("studentDataDB")) || [];
 
     studentDataDB.push(studentData);
 
-    localStorage.setItem("studentData", JSON.stringify(studentDataDB));
+    localStorage.setItem("studentDataDB", JSON.stringify(studentDataDB));
 
     name.value = "";
     email.value = "";

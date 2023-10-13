@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hospital Data</title>
+  </head>
+  <body>
+    <div class="HospitalContainer">
+      <form onsubmit="handleSubmit(event)">
+        <input
+          type="text"
+          id="hospitalName"
+          value=""
+          placeholder="enter hospital name"
+        />
+        <input
+          type="text"
+          id="patientName"
+          value=""
+          placeholder="enter your name"
+        />
+        <input
+          type="text"
+          id="doctorName"
+          value=""
+          placeholder="enter doctorName"
+        />
+        <input
+          type="tel"
+          id="tel"
+          value=""
+          placeholder="enter your phone number"
+        />
+        <input
+          type="number"
+          id="roomNumber"
+          value=""
+          placeholder="enter you room number"
+        />
+        <input type="text" id="disease" value="" placeholder="" />
+        <input type="number" id="adhaar" value="" placeholder="adhaar Number" />
+        <button>Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
+
+<script>
+  function handleSubmit(event) {
+    event.preventDefult();
+    hospital = document.getElementById("hospitalName");
+    hospitalName = hospital.value;
+
+    name = document.getElementById("patientName");
+    patientName = name.value;
+
+    doctor = document.getElementById("doctorName");
+    doctorName = doctor.value;
+
+    tel = document.getElementById("tel");
+    telValue = tel.value;
+
+    roomNumber = document.getElementById("roomNumber");
+    roomNumberValue = roomNumber.value;
+
+    disease = document.getElementById("disease");
+    diseaseName = disease.value;
+
+    adhaar = document.getElementById("adhaar");
+    adhaarNumber = adhaar.value;
+
+    let patientData = {
+      hospital: hospitalName,
+      name: patientName,
+      doctor: doctorName,
+      tel: telValue,
+      roomNumber: roomNumberValue,
+      diseaseName: diseaseName,
+      adhaar: adhaarNumber,
+    };
+
+    let patientDataStore =
+      JSON.parse(localStorage.getItem("patientDataStore")) || [];
+
+    patientDataStore.push(patientData);
+
+    localStorage.setItem("patientDataStore", JSON.stringify(patientDataStore));
+  }
+</script>

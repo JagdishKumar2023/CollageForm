@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
-    <title>Document</title>
+    <title>student data</title>
   </head>
   <body>
     <div class="container">
@@ -24,27 +24,28 @@
         </div>
       </div>
     </div>
-    <table border="1">
-      <thead class="studentContainer">
-        <tr class="studentData">
-          <td>Name</td>
-          <td>Email</td>
-          <td>tel</td>
-          <td>percentage</td>
-          <td>school</td>
-          <td>city</td>
-        </tr>
-      </thead>
-      <tbody id="tbody"></tbody>
-    </table>
+    <div class="collageformContainer">
+      <table border="1">
+        <thead class="studentContainer">
+          <tr>
+            <td>name</td>
+            <td>email</td>
+            <td>tel</td>
+            <td>percentage</td>
+            <td>school</td>
+            <td>city</td>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
   </body>
 </html>
-
 <script>
   let studentData = JSON.parse(localStorage.getItem("studentDataDB"));
   console.log(studentData);
 
-  studentData.map(function (ele, idx, arr) {
+  studentData.map(function (ele, idx, array) {
     let tbdy = document.getElementById("tbody");
 
     let tr = document.createElement("tr");
@@ -56,18 +57,18 @@
     emailTd.innerText = ele.email;
 
     let telTd = document.createElement("td");
-    telTd.innerText = ele.telTd;
+    telTd.innerText = ele.tel;
 
     let percentageTd = document.createElement("td");
-    percentageTd.innerText = ele.percentageTd;
+    percentageTd.innerText = ele.percentage;
 
     let schoolTd = document.createElement("td");
-    schoolTd.innerText = ele.schoolTd;
+    schoolTd.innerText = ele.school;
 
     let cityTd = document.createElement("td");
-    cityTd.innerText = ele.cityTd;
+    cityTd.innerText = ele.city;
 
-    tr.append(nameTd, emailTd, telTd, percentageTd, schoolTd, cityTd);
+    tr.append(nameId, emailTd, telTd, percentageTd, schoolTd, cityTd);
     tbdy.append(tr);
   });
 </script>
