@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.HospitalContainer {
+  /* border: 2px solid red; */
+  height: 720px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgb(20, 174, 197);
+}
+
+h1 {
+  /* border: 2px solid green; */
+  text-transform: capitalize;
+  margin-bottom: 100px;
+  color: rgb(236, 4, 4);
+  font-size: 40px;
+}
+
+form {
+  /* border: 2px solid gold; */
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  border-radius: 18px;
+  height: 200px;
+  background-color: rgb(18, 211, 201);
+  color: rgba(245, 17, 17, 0.955);
+  width: 300px;
+  padding: 15px;
+}
+
+button {
+  height: 100px;
+  /* border: 2px solid red; */
+  width: 200px;
+  margin-top: 40px;
+  padding: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  background-color: rgb(183, 255, 0);
+  color: white;
+}
+
+button:hover {
+  color: black;
+  background-color: white;
+  transition: 0.9s;
+  border-radius: 20px;
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gym data</title>
+  </head>
+  <body>
+    <div class="gymContainer">
+      <form onsubmit="handleSubmit(event)">
+        <input type="text" placeholder="enter your name" id="name" value="" />
+        <input
+          type="number"
+          placeholder="enter your weight"
+          id="weight"
+          value=""
+        />
+        <input
+          type="number"
+          placeholder="enter your height"
+          id="height"
+          value=""
+        />
+        <input
+          type="text"
+          placeholder="enter your calories"
+          id="calories"
+          value=""
+        />
+        <input
+          type="tel"
+          placeholder="enter your phone number"
+          id="tel"
+          value=""
+        />
+        <button>Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
+
+<script>
+  function handleSubmit(event) {
+    event.preventDefult();
+    let name = document.getElementById("name");
+    let nameValue = name.value;
+
+    let weight = document.getElementById("weight");
+    let weightValue = weight.value;
+
+    let height = document.getElementById("height");
+    let heightValue = height.value;
+
+    let calories = document.getElementById("calories");
+    let caloriesValue = calories.value;
+
+    let tel = document.getElementById("tel");
+    let telValue = tel.value;
+
+    let gymData = {
+      name: nameValue,
+      weight: weightValue,
+      height: heightValue,
+      calories: caloriesValue,
+      tel: telValue,
+    };
+
+    let gymDataDB = JSON.parse(localStorage.getItem("gymDataDB")) || [];
+
+    gymDataDB.push(gymData);
+
+    localStorage.setItem("gymDataDB", JSON.stringify(gymData));
+  }
+</script>

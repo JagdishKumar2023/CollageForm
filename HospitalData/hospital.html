@@ -4,9 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hospital Data</title>
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <div class="HospitalContainer">
+      <h1 class="heading">hospital admission form</h1>
       <form onsubmit="handleSubmit(event)">
         <input
           type="text"
@@ -38,7 +40,7 @@
           value=""
           placeholder="enter you room number"
         />
-        <input type="text" id="disease" value="" placeholder="" />
+        <input type="text" id="disease" value="" placeholder="disease" />
         <input type="number" id="adhaar" value="" placeholder="adhaar Number" />
         <button>Submit</button>
       </form>

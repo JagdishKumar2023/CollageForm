@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>club</title>
+  </head>
+  <body>
+    <div class="clubContainer">
+      <form onsubmit="handleSubmit(event)">
+        <input type="text" id="name" value="" placeholder="enter your name" />
+        <input
+          type="email"
+          id="email"
+          value=""
+          placeholder="enter your email"
+        />
+        <input type="text" id="city" value="" placeholder="enter your city" />
+        <input
+          type="tel"
+          id="number"
+          value=""
+          placeholder="enter your number"
+        />
+        <button>Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
+
+<script>
+  function handleSubmit(event) {
+    event.preventDefault();
+    let name = document.getElementById("name");
+    let nameValue = name.value;
+
+    let email = document.getElementById("email");
+    let emailValue = email.value;
+
+    let city = document.getElementById("city");
+    let cityValue = city.value;
+
+    let number = document.getElementById("number");
+    let numberValue = number.value;
+
+    let clubData = {
+      name: nameValue,
+      email: emailValue,
+      city: cityValue,
+      number: numberValue,
+    };
+    let clubDataBase = JSON.parse(localStorage.getItem("clubDataBase")) || [];
+    // console.log(clubDataBase);
+
+    clubDataBase.push(clubData);
+
+    localStorage.setItem("clubDataBase", JSON.stringify(clubDataBase));
+  }
+</script>
